@@ -1,0 +1,25 @@
+
+# HTID:8211148: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:8211148:
+
+# Run Php without filename extension
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+
+# Return 404 if original request is .php
+RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.php[? ].*$"
+RewriteRule .* - [L,R=404]
+
+#Error Pages
+ErrorDocument 400 https://roca.rahul.ac.in/error/400
+ErrorDocument 401 https://roca.rahul.ac.in/error/401
+ErrorDocument 403 https://roca.rahul.ac.in/error/403
+ErrorDocument 404 https://roca.rahul.ac.in/error/404
+ErrorDocument 408 https://roca.rahul.ac.in/error/408
+ErrorDocument 500 https://roca.rahul.ac.in/error/500
+ErrorDocument 502 https://roca.rahul.ac.in/error/502
+ErrorDocument 503 https://roca.rahul.ac.in/error/503
+ErrorDocument 504 https://roca.rahul.ac.in/error/504
